@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    <title>Greeting Message</title>
+    <style>
+        * {
+            font-family: monospace;
+            background-color: #DDEDEA;
+            margin: 0;
+            padding: 0;
+            color: #0F7B6C;
+        }
+        div {
+            margin: 3vw;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="date">
+        <h3 style="font-size: 2em;"></h3>
+        <h1 style="font-size: 4em;"></h1>
+    </div>
+</body>
+
+<script>
+    let div = document.getElementById("date");
+
+    var d = new Date();
+    var weekday = new Array(7);
+    weekday[0] = "domingo";
+    weekday[1] = "segunda";
+    weekday[2] = "terça";
+    weekday[3] = "quarta";
+    weekday[4] = "quinta";
+    weekday[5] = "sexta";
+    weekday[6] = "sábado";
+
+    div.getElementsByTagName("h3").item(0).innerText =
+        weekday[d.getDay()] + ", " +
+        ("0" + d.getDate()).slice(-2) + "/" +
+        ("0" + (d.getMonth() + 1)).slice(-2) + "/" +
+        d.getFullYear();
+
+    if (d.getHours() < 12) {
+        div.getElementsByTagName("h1").item(0).innerText = 'bom dia';
+    }
+    else if (d.getHours() >= 12 && d.getHours() <= 17) {
+        div.getElementsByTagName("h1").item(0).innerText = 'boa tarde';
+    }
+    else if (d.getHours() >= 17 && d.getHours() <= 24) {
+        div.getElementsByTagName("h1").item(0).innerText = 'boa noite';
+    }
+    div.getElementsByTagName("h1").item(0).innerText += ", tiago"
+
+</script>
+
+</html>
